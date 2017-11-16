@@ -1,0 +1,31 @@
+{
+  "name": "typescript-option",
+  "version": "0.0.1",
+  "description": "Option (like Scala) implementation in TypeScript",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rysh/typescript-option.git"
+  },
+  "main": "dist/lib/index.js",
+  "types": "dist/lib/index.d.ts",
+  "scripts": {
+    "prepublish": "npm run build-test",
+    "build": "tsc",
+    "test": "istanbul cover node_modules/mocha/bin/_mocha -- -R spec dist/test",
+    "coverage": "remap-istanbul -i coverage/coverage.json -o testResult/lcov.info -t lcovonly",
+    "coveralls": "coveralls < testResult/lcov.info",
+    "build-test": "npm run build && npm run test && npm run coverage"
+  },
+  "author": "bromne",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/mocha": "^2.2.43",
+    "@types/power-assert": "^1.4.29",
+    "coveralls": "^3.0.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.5.3",
+    "power-assert": "^1.4.4",
+    "remap-istanbul": "^0.9.5",
+    "typescript": "^2.5.3"
+  }
+}
